@@ -6,7 +6,9 @@ const siteContent = {
     "nav-item-4": "Features",
     "nav-item-5": "About",
     "nav-item-6": "Contact",
-    "img-src": "img/logo.png"
+    "img-src": "img/logo.png",
+    "nav-item-6": "First",
+    "nav-item-7": "Second"
   },
   "cta": {
     "h1": "DOM Is Awesome",
@@ -93,3 +95,8 @@ contentText[5].textContent = siteContent["contact"]["address"];
 contentText[6].textContent = siteContent["contact"]["phone"];
 contentText[7].textContent = siteContent["contact"]["email"];
 contentText[8].textContent = siteContent["footer"]["copyright"];
+
+const newBtn = document.createElement("button");
+newBtn.textContent = "New Button";
+navBar.append(newBtn);
+newBtn.onclick = function(){document.getElementsByTagName("BODY")[0].style.backgroundColor = "yellow";};
