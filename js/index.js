@@ -38,15 +38,36 @@ const siteContent = {
 };
 
 // Example: Update the img src for the logo
-let logo = document.getElementById("logo-img");
+const logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
-let ctaImg = document.getElementById("cta-img");
+const ctaImg = document.getElementById("cta-img");
 ctaImg.src = "./img/header-img.png";
-ctaImg.alt = "Code snippet";
 
-let ctaHeader = document.querySelector("h1");
+const ctaHeader = document.querySelector(".cta-text h1");
 ctaHeader.textContent = "DOM IS AWESOME";
 
-let ctaButton = document.querySelector("button");
+const ctaButton = document.querySelector("button");
 ctaButton.textContent = "Get Started";
+
+const midImg = document.getElementById("middle-img");
+midImg.src = "./img/mid-page-accent.jpg";
+
+const contentHeaders = document.getElementsByTagName("h4");
+contentHeaders[0].textContent = "Features";
+contentHeaders[1].textContent = "About";
+contentHeaders[2].textContent = "Services";
+contentHeaders[3].textContent = "Product";
+contentHeaders[4].textContent = "Vision";
+contentHeaders[5].textContent = "Contact";
+
+const contentText = document.getElementsByTagName("p");
+contentText[0].textContent = "Features content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.";
+contentText[1].textContent = "About content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.";
+contentText[2].textContent = "Services content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.";
+contentText[3].textContent = "Product content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.";
+contentText[4].textContent = "Vision content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.";
+contentText[5].textContent = "123 Way 456 Street Somewhere, USA";
+contentText[6].textContent = "1 (888) 888-8888";
+contentText[7].textContent = "sales@greatidea.io";
+contentText[8].textContent = "Copyright Great Idea! 2018";
