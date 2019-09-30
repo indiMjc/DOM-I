@@ -42,40 +42,54 @@ const logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 const navEle = document.getElementsByTagName("a");
-navEle[0].textContent = "Services";
-navEle[1].textContent = "Product";
-navEle[2].textContent = "Vision";
-navEle[3].textContent = "Features";
-navEle[4].textContent = "About";
-navEle[5].textContent = "Contact";
+navEle[0].textContent = siteContent["nav"]["nav-item-1"];
+navEle[1].textContent = siteContent["nav"]["nav-item-2"];
+navEle[2].textContent = siteContent["nav"]["nav-item-3"];
+navEle[3].textContent = siteContent["nav"]["nav-item-4"];
+navEle[4].textContent = siteContent["nav"]["nav-item-5"];
+navEle[5].textContent = siteContent["nav"]["nav-item-6"];
+
+
+const navBar = document.querySelector('nav');
+const newNavOne = document.createElement("a");
+const newNavTwo = document.createElement("a");
+newNavOne.textContent = "First";
+newNavTwo.textContent = "Second";
+navBar.prepend(newNavOne);
+navBar.appendChild(newNavTwo);
+
+const navArr = document.querySelectorAll("a");
+navArr.forEach(ele => {
+  ele.style.color = "green";
+});
 
 const ctaImg = document.getElementById("cta-img");
-ctaImg.src = "./img/header-img.png";
+ctaImg.src = siteContent["cta"]["img-src"];
 
 const ctaHeader = document.querySelector(".cta-text h1");
-ctaHeader.textContent = "DOM IS AWESOME";
+ctaHeader.textContent = siteContent["cta"]["h1"];
 
 const ctaButton = document.querySelector("button");
-ctaButton.textContent = "Get Started";
+ctaButton.textContent = siteContent["cta"]["button"];
 
 const midImg = document.getElementById("middle-img");
-midImg.src = "./img/mid-page-accent.jpg";
+midImg.src = siteContent["main-content"]["middle-img-src"];
 
 const contentHeaders = document.getElementsByTagName("h4");
-contentHeaders[0].textContent = "Features";
-contentHeaders[1].textContent = "About";
-contentHeaders[2].textContent = "Services";
-contentHeaders[3].textContent = "Product";
-contentHeaders[4].textContent = "Vision";
-contentHeaders[5].textContent = "Contact";
+contentHeaders[0].textContent = siteContent["main-content"]["features-h4"];
+contentHeaders[1].textContent = siteContent["main-content"]["about-h4"];
+contentHeaders[2].textContent = siteContent["main-content"]["services-h4"];
+contentHeaders[3].textContent = siteContent["main-content"]["product-h4"];
+contentHeaders[4].textContent = siteContent["main-content"]["vision-h4"];
+contentHeaders[5].textContent = siteContent["contact"]["contact-h4"];
 
 const contentText = document.getElementsByTagName("p");
-contentText[0].textContent = "Features content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.";
-contentText[1].textContent = "About content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.";
-contentText[2].textContent = "Services content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.";
-contentText[3].textContent = "Product content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.";
-contentText[4].textContent = "Vision content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.";
-contentText[5].textContent = "123 Way 456 Street Somewhere, USA";
-contentText[6].textContent = "1 (888) 888-8888";
-contentText[7].textContent = "sales@greatidea.io";
-contentText[8].textContent = "Copyright Great Idea! 2018";
+contentText[0].textContent = siteContent["main-content"]["features-content"];
+contentText[1].textContent = siteContent["main-content"]["about-content"];
+contentText[2].textContent = siteContent["main-content"]["services-content"];
+contentText[3].textContent = siteContent["main-content"]["product-content"];
+contentText[4].textContent = siteContent["main-content"]["vision-content"];
+contentText[5].textContent = siteContent["contact"]["address"];
+contentText[6].textContent = siteContent["contact"]["phone"];
+contentText[7].textContent = siteContent["contact"]["email"];
+contentText[8].textContent = siteContent["footer"]["copyright"];
