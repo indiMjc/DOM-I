@@ -41,6 +41,14 @@ const siteContent = {
 const logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
+const navEle = document.getElementsByTagName("a");
+navEle[0].textContent = "Services";
+navEle[1].textContent = "Product";
+navEle[2].textContent = "Vision";
+navEle[3].textContent = "Features";
+navEle[4].textContent = "About";
+navEle[5].textContent = "Contact";
+
 const ctaImg = document.getElementById("cta-img");
 ctaImg.src = "./img/header-img.png";
 
