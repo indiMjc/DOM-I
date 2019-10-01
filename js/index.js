@@ -7,8 +7,6 @@ const siteContent = {
     "nav-item-5": "About",
     "nav-item-6": "Contact",
     "img-src": "img/logo.png",
-    // "nav-item-6": "First",
-    // "nav-item-7": "Second"
   },
   "cta": {
     "h1": "DOM Is Awesome",
@@ -66,9 +64,12 @@ ctaImg.src = siteContent["cta"]["img-src"];
 
 const ctaHeader = document.querySelector(".cta-text h1");
 ctaHeader.textContent = siteContent["cta"]["h1"];
+ctaHeader.style.whiteSpace = 'pre';
+ctaHeader.textContent = 'DOM\n Is\n Awesome';
 
 const ctaButton = document.querySelector("button");
 ctaButton.textContent = siteContent["cta"]["button"];
+ctaButton.id = "cta-button";
 
 const midImg = document.getElementById("middle-img");
 midImg.src = siteContent["main-content"]["middle-img-src"];
@@ -97,12 +98,17 @@ const newBtn = document.createElement("button");
 newBtn.textContent = "Dark Mode";
 newBtn.id = "darkModeBtn";
 navBar.append(newBtn);
+newBtn.style.backgroundColor = "white";
+newBtn.style.border = "1px solid black";
 
 const lightModeBtn = document.createElement("button");
 lightModeBtn.textContent = "Light Mode";
 lightModeBtn.id = "lightModeBtn";
 navBar.append(lightModeBtn);
 lightModeBtn.style.display = "none";
+lightModeBtn.style.color = "yellow";
+lightModeBtn.style.backgroundColor = "black";
+lightModeBtn.style.border = "1px solid yellow";
 
 
 newBtn.addEventListener("click", darkMode, false);
@@ -114,6 +120,9 @@ function darkMode () {
   });
   document.getElementById("darkModeBtn").style.display = "none";
   document.getElementById("lightModeBtn").style.display = "inline";
+  document.getElementById("cta-button").style.color = "yellow";
+  document.getElementById("cta-button").style.backgroundColor = "black";
+  document.getElementById("cta-button").style.border = "1px solid yellow";
 };
 
 lightModeBtn.addEventListener("click", lightMode, false);
@@ -125,4 +134,7 @@ function lightMode () {
   });
   document.getElementById("darkModeBtn").style.display = "inline";
   document.getElementById("lightModeBtn").style.display = "none";
+  document.getElementById("cta-button").style.color = "black";
+  document.getElementById("cta-button").style.backgroundColor = "white";
+  document.getElementById("cta-button").style.border = "1px solid black";
 };
