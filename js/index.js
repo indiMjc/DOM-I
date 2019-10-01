@@ -7,8 +7,8 @@ const siteContent = {
     "nav-item-5": "About",
     "nav-item-6": "Contact",
     "img-src": "img/logo.png",
-    "nav-item-6": "First",
-    "nav-item-7": "Second"
+    // "nav-item-6": "First",
+    // "nav-item-7": "Second"
   },
   "cta": {
     "h1": "DOM Is Awesome",
@@ -43,14 +43,10 @@ const siteContent = {
 const logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
-const navEle = document.getElementsByTagName("a");
-navEle[0].textContent = siteContent["nav"]["nav-item-1"];
-navEle[1].textContent = siteContent["nav"]["nav-item-2"];
-navEle[2].textContent = siteContent["nav"]["nav-item-3"];
-navEle[3].textContent = siteContent["nav"]["nav-item-4"];
-navEle[4].textContent = siteContent["nav"]["nav-item-5"];
-navEle[5].textContent = siteContent["nav"]["nav-item-6"];
-
+const navEle = document.querySelectorAll("a");
+navEle.forEach((tag, i) => {
+  tag.textContent = siteContent["nav"][`nav-item-${i+1}`];
+});
 
 const navBar = document.querySelector('nav');
 const newNavOne = document.createElement("a");
@@ -77,7 +73,7 @@ ctaButton.textContent = siteContent["cta"]["button"];
 const midImg = document.getElementById("middle-img");
 midImg.src = siteContent["main-content"]["middle-img-src"];
 
-const contentHeaders = document.getElementsByTagName("h4");
+const contentHeaders = document.querySelectorAll("h4");
 contentHeaders[0].textContent = siteContent["main-content"]["features-h4"];
 contentHeaders[1].textContent = siteContent["main-content"]["about-h4"];
 contentHeaders[2].textContent = siteContent["main-content"]["services-h4"];
@@ -85,7 +81,8 @@ contentHeaders[3].textContent = siteContent["main-content"]["product-h4"];
 contentHeaders[4].textContent = siteContent["main-content"]["vision-h4"];
 contentHeaders[5].textContent = siteContent["contact"]["contact-h4"];
 
-const contentText = document.getElementsByTagName("p");
+const contentText = document.querySelectorAll("p");
+
 contentText[0].textContent = siteContent["main-content"]["features-content"];
 contentText[1].textContent = siteContent["main-content"]["about-content"];
 contentText[2].textContent = siteContent["main-content"]["services-content"];
@@ -97,34 +94,35 @@ contentText[7].textContent = siteContent["contact"]["email"];
 contentText[8].textContent = siteContent["footer"]["copyright"];
 
 const newBtn = document.createElement("button");
-newBtn.textContent = "New Button";
+newBtn.textContent = "Dark Mode";
+newBtn.id = "darkModeBtn";
 navBar.append(newBtn);
+
+const lightModeBtn = document.createElement("button");
+lightModeBtn.textContent = "Light Mode";
+lightModeBtn.id = "lightModeBtn";
+navBar.append(lightModeBtn);
+lightModeBtn.style.display = "none";
+
 
 newBtn.addEventListener("click", darkMode, false);
 function darkMode () {
-  document.getElementsByTagName('body')[0].style.backgroundColor = 'black';
-  document.getElementsByTagName('a')[0].style.color = 'yellow';
-  document.getElementsByTagName('a')[1].style.color = 'yellow';
-  document.getElementsByTagName('a')[2].style.color = 'yellow';
-  document.getElementsByTagName('a')[3].style.color = 'yellow';
-  document.getElementsByTagName('a')[4].style.color = 'yellow';
-  document.getElementsByTagName('a')[5].style.color = 'yellow';
-  document.getElementsByTagName('a')[6].style.color = 'yellow';
-  document.getElementsByTagName('a')[7].style.color = 'yellow';
-  document.getElementsByTagName('h1')[0].style.color = 'yellow';
-  document.getElementsByTagName('h4')[0].style.color = 'yellow';
-  document.getElementsByTagName('h4')[1].style.color = 'yellow';
-  document.getElementsByTagName('h4')[2].style.color = 'yellow';
-  document.getElementsByTagName('h4')[3].style.color = 'yellow';
-  document.getElementsByTagName('h4')[4].style.color = 'yellow';
-  document.getElementsByTagName('h4')[5].style.color = 'yellow';
-  document.getElementsByTagName('p')[0].style.color = 'yellow';
-  document.getElementsByTagName('p')[1].style.color = 'yellow';
-  document.getElementsByTagName('p')[2].style.color = 'yellow';
-  document.getElementsByTagName('p')[3].style.color = 'yellow';
-  document.getElementsByTagName('p')[4].style.color = 'yellow';
-  document.getElementsByTagName('p')[5].style.color = 'yellow';
-  document.getElementsByTagName('p')[6].style.color = 'yellow';
-  document.getElementsByTagName('p')[7].style.color = 'yellow';
-  document.getElementsByTagName('p')[8].style.color = 'yellow';
+  document.getElementsByTagName("body")[0].style.backgroundColor = 'black';
+  let tags = document.querySelectorAll("a, h1, h4, p");
+  tags.forEach(tag => {
+    tag.style.color = "yellow";
+  });
+  document.getElementById("darkModeBtn").style.display = "none";
+  document.getElementById("lightModeBtn").style.display = "inline";
+};
+
+lightModeBtn.addEventListener("click", lightMode, false);
+function lightMode () {
+  document.getElementsByTagName("body")[0].style.backgroundColor = 'white';
+  let tags = document.querySelectorAll("a, h1, h4, p");
+  tags.forEach(tag => {
+    tag.style.color = "black";
+  });
+  document.getElementById("darkModeBtn").style.display = "inline";
+  document.getElementById("lightModeBtn").style.display = "none";
 };
