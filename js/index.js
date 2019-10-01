@@ -94,12 +94,12 @@ contentText[6].textContent = siteContent["contact"]["phone"];
 contentText[7].textContent = siteContent["contact"]["email"];
 contentText[8].textContent = siteContent["footer"]["copyright"];
 
-const newBtn = document.createElement("button");
-newBtn.textContent = "Dark Mode";
-newBtn.id = "darkModeBtn";
-navBar.append(newBtn);
-newBtn.style.backgroundColor = "white";
-newBtn.style.border = "1px solid black";
+const darkBtn = document.createElement("button");
+darkBtn.textContent = "Dark Mode";
+darkBtn.id = "darkModeBtn";
+navBar.append(darkBtn);
+darkBtn.style.backgroundColor = "white";
+darkBtn.style.border = "1px solid black";
 
 const lightModeBtn = document.createElement("button");
 lightModeBtn.textContent = "Light Mode";
@@ -111,7 +111,7 @@ lightModeBtn.style.backgroundColor = "black";
 lightModeBtn.style.border = "1px solid yellow";
 
 
-newBtn.addEventListener("click", darkMode, false);
+darkBtn.addEventListener("click", darkMode, false);
 function darkMode () {
   document.getElementsByTagName("body")[0].style.backgroundColor = 'black';
   let tags = document.querySelectorAll("a, h1, h4, p");
