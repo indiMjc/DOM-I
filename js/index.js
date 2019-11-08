@@ -6,7 +6,7 @@ const siteContent = {
     "nav-item-4": "Features",
     "nav-item-5": "About",
     "nav-item-6": "Contact",
-    "img-src": "img/logo.png"
+    "img-src": "img/logo.png",
   },
   "cta": {
     "h1": "DOM Is Awesome",
@@ -38,5 +38,103 @@ const siteContent = {
 };
 
 // Example: Update the img src for the logo
-let logo = document.getElementById("logo-img");
+const logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+const navEle = document.querySelectorAll("a");
+navEle.forEach((tag, i) => {
+  tag.textContent = siteContent["nav"][`nav-item-${i+1}`];
+});
+
+const navBar = document.querySelector('nav');
+const newNavOne = document.createElement("a");
+const newNavTwo = document.createElement("a");
+newNavOne.textContent = "First";
+newNavTwo.textContent = "Second";
+navBar.prepend(newNavOne);
+navBar.appendChild(newNavTwo);
+
+const navArr = document.querySelectorAll("a");
+navArr.forEach(ele => {
+  ele.style.color = "green";
+});
+
+const ctaImg = document.getElementById("cta-img");
+ctaImg.src = siteContent["cta"]["img-src"];
+
+const ctaHeader = document.querySelector(".cta-text h1");
+ctaHeader.textContent = siteContent["cta"]["h1"];
+ctaHeader.style.whiteSpace = 'pre';
+ctaHeader.textContent = 'DOM\n Is\n Awesome';
+
+const ctaButton = document.querySelector("button");
+ctaButton.textContent = siteContent["cta"]["button"];
+ctaButton.id = "cta-button";
+
+const midImg = document.getElementById("middle-img");
+midImg.src = siteContent["main-content"]["middle-img-src"];
+
+const contentHeaders = document.querySelectorAll("h4");
+contentHeaders[0].textContent = siteContent["main-content"]["features-h4"];
+contentHeaders[1].textContent = siteContent["main-content"]["about-h4"];
+contentHeaders[2].textContent = siteContent["main-content"]["services-h4"];
+contentHeaders[3].textContent = siteContent["main-content"]["product-h4"];
+contentHeaders[4].textContent = siteContent["main-content"]["vision-h4"];
+contentHeaders[5].textContent = siteContent["contact"]["contact-h4"];
+
+const contentText = document.querySelectorAll("p");
+
+contentText[0].textContent = siteContent["main-content"]["features-content"];
+contentText[1].textContent = siteContent["main-content"]["about-content"];
+contentText[2].textContent = siteContent["main-content"]["services-content"];
+contentText[3].textContent = siteContent["main-content"]["product-content"];
+contentText[4].textContent = siteContent["main-content"]["vision-content"];
+contentText[5].textContent = siteContent["contact"]["address"];
+contentText[6].textContent = siteContent["contact"]["phone"];
+contentText[7].textContent = siteContent["contact"]["email"];
+contentText[8].textContent = siteContent["footer"]["copyright"];
+
+const darkBtn = document.createElement("button");
+darkBtn.textContent = "Dark Mode";
+darkBtn.id = "darkModeBtn";
+navBar.append(darkBtn);
+darkBtn.style.backgroundColor = "white";
+darkBtn.style.border = "1px solid black";
+
+const lightModeBtn = document.createElement("button");
+lightModeBtn.textContent = "Light Mode";
+lightModeBtn.id = "lightModeBtn";
+navBar.append(lightModeBtn);
+lightModeBtn.style.display = "none";
+lightModeBtn.style.color = "yellow";
+lightModeBtn.style.backgroundColor = "black";
+lightModeBtn.style.border = "1px solid yellow";
+
+
+darkBtn.addEventListener("click", darkMode, false);
+function darkMode () {
+  document.getElementsByTagName("body")[0].style.backgroundColor = 'black';
+  let tags = document.querySelectorAll("a, h1, h4, p");
+  tags.forEach(tag => {
+    tag.style.color = "yellow";
+  });
+  document.getElementById("darkModeBtn").style.display = "none";
+  document.getElementById("lightModeBtn").style.display = "inline";
+  document.getElementById("cta-button").style.color = "yellow";
+  document.getElementById("cta-button").style.backgroundColor = "black";
+  document.getElementById("cta-button").style.border = "1px solid yellow";
+};
+
+lightModeBtn.addEventListener("click", lightMode, false);
+function lightMode () {
+  document.getElementsByTagName("body")[0].style.backgroundColor = 'white';
+  let tags = document.querySelectorAll("a, h1, h4, p");
+  tags.forEach(tag => {
+    tag.style.color = "black";
+  });
+  document.getElementById("darkModeBtn").style.display = "inline";
+  document.getElementById("lightModeBtn").style.display = "none";
+  document.getElementById("cta-button").style.color = "black";
+  document.getElementById("cta-button").style.backgroundColor = "white";
+  document.getElementById("cta-button").style.border = "1px solid black";
+};
